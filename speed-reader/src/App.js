@@ -1,10 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
-import EnterText from './Text/Components/Text.js'
+import UploadButton from './UploadButton';
+import Button from '@material-ui/core/Button';
 
-function App() {
+const App = () => {
+
+  const [text, setText] = useState('')
+  const [check, setCheck] = useState(false)
+  const updateText = (event) => {
+    setText(event.target.value)
+  }
+
   return (
-    <EnterText/>
+    <div>
+      <form>
+        <h1>Enter text or upload a file.</h1>
+        <textarea rows = "15" cols = "100" name="text" onChange = {updateText}></textarea>
+      </form>
+      <UploadButton/>
+    </div>
   );
 }
 
