@@ -1,0 +1,45 @@
+div {
+    font-family: 'Noto Sans KR', sans-serif;
+    flex-wrap: wrap;
+}
+
+h2 {
+    margin-top: 20rem;
+    font-size: 5rem;
+    text-align: center;
+}
+
+form {
+    margin-top: 5rem;
+    min-height: 20vh; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    position: absolute;
+    font-size: 5rem;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    align-items: flex-start;
+}
+
+button:hover {
+    transition: all 0.5s ease;
+    color: rgb(196, 196, 196);
+  }
+
+button.upload {
+    margin-top: 29rem;
+}
+
+button.read {
+    font-size: 7rem;
+    margin-top: 75rem;
+}
