@@ -11,7 +11,7 @@ const Home = ({getTextContents}) => (
             </textarea>
         </form>
         {/* <UploadButton /> */}
-        <Link to="/Loading">Loading Page</Link>
+        <Link to="/Reader">Loading Page</Link>
     </div>
 );
 

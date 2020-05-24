@@ -20,7 +20,7 @@ export default function UploadButton() {
   return (
     <div className={classes.root}>
       <input
-        accept={".pdf", ".doc", ".docx"}
+        accept={".pdf"}
         className={classes.input}
         id="contained-button-file"
         multiple
