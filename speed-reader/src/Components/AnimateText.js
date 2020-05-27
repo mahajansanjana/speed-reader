@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react';
 
-// Many thanks to Dan Abramov from overreacted.io! 
+// Many thanks to Dan Abramov from overreacted.io !!!
 // https://overreacted.io/making-setinterval-declarative-with-react-hooks/
 function useInterval(callback, delay) {
     const savedCallback = useRef();
@@ -22,17 +22,16 @@ function useInterval(callback, delay) {
     }, [delay]);
 }
 
-const AnimateText = ({play, text}) => { 
-    const words = text.split(' ')
+const AnimateText = ({play, text, WPM}) => { 
+    const words = text.split('\n').join(' ').split(' ') 
     const [index, setIndex] = useState(0)  
-    // hardcoded speed - flash word every 1 second. 
-    const delay = 1000 // units are milliseconds 
+    const delay = 1000 / (WPM / 60) 
     useInterval((play) => {
         setIndex(index + 1) 
     }, play ? delay : null)
     return (
         <div>
-            <p>{words[index]}</p>
+          {words[index]}
         </div>
     ) 
 }
