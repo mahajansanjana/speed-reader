@@ -3,14 +3,13 @@ div {
 }
 
 h1 {
-    font-size: 4rem;
+    color: 'red';
+    font-size: 5rem;
 }
 
 textarea {
-    wrap: "soft"; 
+    font-family: 'Noto Sans KR';
+    wrap: 'soft'; 
     resize: none;
-}
-
-.final {
-    color: red;
+    outline: none;
 }

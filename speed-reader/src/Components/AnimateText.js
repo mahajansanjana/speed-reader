@@ -1,4 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
+import styled from 'styled-components';
 
 // Many thanks to Dan Abramov from overreacted.io !!!
 // https://overreacted.io/making-setinterval-declarative-with-react-hooks/
@@ -30,8 +31,11 @@ const AnimateText = ({play, text, WPM}) => {
         setIndex(index + 1) 
     }, play ? delay : null)
     return (
-        <div>
-          {words[index]}
+        <div style={{
+          position: 'absolute', left: '50%', top: '40%',
+          transform: 'translate(-50%, -50%)', fontSize: '5rem'}}
+          > 
+            {words[index]}
         </div>
     ) 
 }
