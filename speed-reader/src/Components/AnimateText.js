@@ -24,7 +24,7 @@ function useInterval(callback, delay) {
 }
 
 const AnimateText = ({play, text, WPM}) => { 
-    const words = text.split('\n').join(' ').split(' ') 
+    const words = text.split('\n').join(' ').split(' ')
     const [index, setIndex] = useState(0)  
     const delay = 1000 / (WPM / 60) 
     useInterval((play) => {

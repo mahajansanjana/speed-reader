@@ -1,3 +1,4 @@
+
 import React, {useRef, useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
@@ -38,9 +39,12 @@ function useEventListener(eventName, handler, element = window) {
 }
 
 const PlayPause = ({theme, play, toggle}) => {
-    const handler = (event) => (
-        event.key === ' ' ? toggle(play) : null
-    )
+    const handler = (event) => {
+        if (event.key === ' ') { 
+            event.preventDefault()
+            toggle(play)
+        }
+    }
     const useStyles = makeStyles({
         buttonLight: {
             color: '#363537',
@@ -80,4 +84,3 @@ const PlayPause = ({theme, play, toggle}) => {
 }
 
 export default PlayPause
-

@@ -2,14 +2,18 @@ div {
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-h1 {
-    color: 'red';
-    font-size: 5rem;
+.dark {
+    color: #FAFAFA;
+    background-color: #363537;
+}
+
+.light {
+    color: #363537;
+    background-color: #FAFAFA;
 }
 
 textarea {
     font-family: 'Noto Sans KR';
-    wrap: 'soft'; 
     resize: none;
     outline: none;
 }

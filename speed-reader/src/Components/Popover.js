@@ -29,11 +29,13 @@ export default function MouseOverPopover() {
 
   return (
     <div 
-        style = {{position: 'absolute',
+        style = {{
+                position: 'absolute',
                 transform: 'translate(-50%, -50%)',
                 left: '4%',
                 top: '93%',
-                textAlign: 'center'}}
+                textAlign: 'center'
+              }}
     >
       <Typography
         aria-owns={open ? 'mouse-over-popover' : undefined}
@@ -62,7 +64,7 @@ export default function MouseOverPopover() {
         onClose={handlePopoverClose}
         disableRestoreFocus
       >
-        <Typography fontSize = 'small'>
+        <Typography style = {{fontSize: 'small'}}>
             Press the play button or spacebar to start. Adjust reading speed using the slider.
         </Typography>
       </Popover>

@@ -5,9 +5,7 @@ import Reader from './Components/Reader.js'
 import { MemoryRouter } from 'react-router'
 import './App.css'
 import ToggleSwitch from './Components/ToggleSwitch.js'
-import {ThemeProvider} from "styled-components";
-import { GlobalStyles } from "./Components/GlobalStyles";
-import { lightTheme, darkTheme } from "./Components/Themes"
+import Helmet from 'react-helmet';
 
 const App = () => {
     const [text, setText] = useState('')
@@ -19,26 +17,21 @@ const App = () => {
         (!checked) ? setTheme('light') : setTheme('dark')
     }
     return (
-        <ThemeProvider theme = {theme === 'light' ? lightTheme : darkTheme}>
-        <>
-        <GlobalStyles/>
-        <div>
+        <div className = {theme == 'light' ? 'light' : 'dark'}>
+            <Helmet bodyAttributes={{style: theme == 'light' ? 'background-color : #FAFAFA' : 'background-color : #363537'}}/>
             <ToggleSwitch toggleTheme = {toggleTheme} />
-            <MemoryRouter>
-                <Switch>
-                    <Route exact path="/">
-                        <Home theme = {theme} getTextContents = {getTextContents}/>
-                    </Route>
-                    <Route path="/Reader">
-                        <Reader theme = {theme} text = {text} getTextContents = {getTextContents}/>
-                    </Route>
-                </Switch>
-            </MemoryRouter>
+                <MemoryRouter>
+                    <Switch>
+                        <Route exact path="/">
+                            <Home theme = {theme} getTextContents = {getTextContents}/>
+                        </Route>
+                        <Route path="/Reader">
+                            <Reader theme = {theme} text = {text} getTextContents = {getTextContents}/>
+                        </Route>
+                    </Switch>
+                </MemoryRouter>
         </div>
-        </>
-        </ThemeProvider>
-    )
-  
+    ) 
 }
 
 export default App

@@ -50,19 +50,26 @@ export default function InputSlider({theme, getWPM}) {
   };
 
   const handleInputChange = (event) => {
-    setValue(event.target.value === '' ? '' : Number(event.target.value))
-    getWPM(event.target.value === '' ? '' : Number(event.target.value))
+    if (Number(event.target.value)) {
+      setValue(event.target.value)
+      getWPM(Math.max(50, Math.min(Number(event.target.value), 1500)))
+    }
+    else if (event.target.value === '') {
+      setValue(event.target.value)
+    }
   };
 
+/*
   const handleBlur = () => {
     if (value < 50) {
       setValue(50)
       getWPM(50)
-    } else if (value > 2000) {
-      setValue(2000)
-      getWPM(2000)
+    } else if (value > 1500) {
+      setValue(1500)
+      getWPM(1500)
     }
   };
+*/
 
   return (
     <div className={classes.root}>
@@ -72,9 +79,9 @@ export default function InputSlider({theme, getWPM}) {
         <ThemeProvider theme = {thumb}>
         <Slider
             className = {theme === 'light' ? classes.sliderLight : classes.sliderDark}
-            step={25}
+            step={5}
             min={50}
-            max={2000}
+            max={1500}
             value={typeof value === 'number' ? value : 50}
             onChange={handleSliderChange}
             aria-labelledby="input-slider"
@@ -89,12 +96,10 @@ export default function InputSlider({theme, getWPM}) {
             width='1rem'
             margin="dense"
             onChange={handleInputChange}
-            onBlur={handleBlur}
             inputProps={{
-              step: 25,
               min: 50,
-              max: 2000,
-              type: 'number',
+              max: 1500,
+              type: 'tel',
               'aria-labelledby': 'input-slider',
             }}
           />
