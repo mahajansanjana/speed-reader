@@ -8,8 +8,7 @@ const thumb = createMuiTheme({
   overrides: {
     MuiSlider: {
       thumb: {
-        '&$focused, &$activated, &$jumped, &:hover': {
-          border: 'none',
+        '&:focus, &:active, &:hover': {
           boxShadow:'none',
         }
       }
