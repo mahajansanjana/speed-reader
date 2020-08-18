@@ -51,7 +51,7 @@ export default function InputSlider({theme, getWPM}) {
 
   const handleInputChange = (event) => {
     if (Number(event.target.value)) {
-      setValue(event.target.value)
+      setValue(Number(event.target.value))
       getWPM(Math.max(50, Math.min(Number(event.target.value), 1500)))
     }
     else if (event.target.value === '') {
@@ -95,11 +95,11 @@ export default function InputSlider({theme, getWPM}) {
             value={value}
             width='1rem'
             margin="dense"
+            //onBlur={handleBlur}
             onChange={handleInputChange}
             inputProps={{
               min: 50,
               max: 1500,
-              type: 'tel',
               'aria-labelledby': 'input-slider',
             }}
           />
